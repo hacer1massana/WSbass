@@ -1,14 +1,16 @@
-
+// se instancia el aCtx fuera, para activarlo solo en el onclick ya que se queja el navegador, las funciones de audio son mejor que se hagan por interaccion no automaticamente.
 let audioContext = new Object(null);
 
+// como si encendieramos una maquina, pero en este caso es solo para el testing
 function startStop()
 {
 
 	audioContext = audioContext =! null ? new AudioContext : null;
 
-	return test(audioContext);
+	return;//test(audioContext);
 }
 
+// primer paso para el refactoring posterior, entendiendo que params o que objetos son mas globales y cuales pueden ser más constantes.
 function audioParams()
 {
 	return { 	
@@ -18,6 +20,7 @@ function audioParams()
 
 }
 
+// tratando de desglosar el filter, primer testing para poder entender el filter
 function desfrag()
 {
 	startStop();
@@ -58,7 +61,7 @@ function desfrag()
 
 
 
-
+//generar una nota de bajo simple sin efectos (filtros o pluck so on)
 function playBassNote(frequency, duration, time)
 {
 
@@ -86,9 +89,10 @@ function playBassNote(frequency, duration, time)
 	aContext.oscillator.stop(time + duration);
 
 
-	return test(duration, frequency);
+	return;//test(duration, frequency);
 }
 
+// function que nos da el deepseek para generar un filtro 
 function playBassNoteWFilter(frequency, duration, time)
 {
 	const oscillator = audioContext.createOscillator();
@@ -111,7 +115,7 @@ function playBassNoteWFilter(frequency, duration, time)
 	gainNode.gain.exponentialRampToValueAtTime(0.5, time + duration * 0.5);
 	gainNode.gain.exponentialRampToValueAtTime(0.001, time + duration);
 
-//
+// posibilidad de refactorizar los connect y los start/stop
 
 	oscillator.connect(filter);
 	filter.connect(gainNode);
@@ -120,9 +124,10 @@ function playBassNoteWFilter(frequency, duration, time)
 	oscillator.start(time);
 	oscillator.stop(time +  duration);
 
-	return test(duration, frequency);
+	return;//test(duration, frequency);
 }
 
+// semi refactorizado ya que pluck es una continuacion del filter mas buffer.
 function playBassNoteWPluck(frequency, duration, time)
 {
 
@@ -151,13 +156,14 @@ function playBassNoteWPluck(frequency, duration, time)
 	noiseSource.start(time);
 	noiseSource.stop(time + 0.02);
 
-	return test(duration, frequency);
+	return;//test(duration, frequency);
 }
 
+// aqui es donde se le puede pasar una "partitura"
 function playBassLine(notesObj)
 {
 
-	//const tabToFrequency;
+	//TODO const tabToFrequency;
 
 	const tempo = 120;
 	const secondsPerBeat = 60 / tempo;
@@ -173,6 +179,10 @@ function playBassLine(notesObj)
 		});
 	//}
 }
+
+// los valores actuales son referecnias de la frecuencia en gh en contraste con las notas existentes
+// pero aun no se han unido las notas reales con las frecuencias es decir, E = ?,
+// faltaria el TODO de tab to Frequency.
 
 const wsBass = 
 [
@@ -205,6 +215,11 @@ const wsBass =
 	{ frequency : 61.74, duration : 2 },
 	{ frequency : 58.27, duration : 2 }
 ];
+
+// testing dos, con el setInterval, para que la melodia o el oscilador 
+// toque una y otra vez lo mismo
+// resultados de como se solapan y se unen 
+// aun por entender pero mola.
 
 let setTime;
 let counter = 0;
