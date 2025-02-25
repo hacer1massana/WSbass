@@ -1,5 +1,6 @@
 # WSbass
-[OSCIBASS](https://hacer1massana.github.io/WSbass/)
+Simulando el bajo, para ello se elige la canción de los Withe Stripes.
+[WSbass](https://hacer1massana.github.io/WSbass/)
 
 
 ## 240224
