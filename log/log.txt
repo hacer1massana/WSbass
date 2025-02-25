@@ -1,0 +1,18 @@
+240224 WSBass AForton
+
+En un principio se quiere, imitar el bajo de la canción de los whiteStripes (seven nation army), para ello con la ayuda de 
+deepSeek, se le pregunta como imitar el sonido del bajo con un oscilador, o con la api sound de js, además se le pide también
+que ofrezca una lista donde se instancien las frecuencias con las notas del bajo.
+Este nos muestra tres funciones, ademas de poder generar una "partitura", es decir, por un lado el sonido basico del bajo
+y luego a traves de un filtro de tipo 'lowpass', a traves del metodo exponentialRampToValueAtTime nos permite modificar la
+frecuencia, luego tambien el pluck, donde se crea un buffer de ruido que se puede tambien modificar.
+Aun no entiendo muy bien como funciona, pero el tema es que se puede moldear el oscilador, tanto en frecuencia, en tiempo
+largo, amplitud so on.
+Una vez escrito el codigo que nos muestra el deepseek, se podria refactorizar, ver que se repite y generar desde objetos 
+a que sea mas functional prog, no obstante, uno se detiene a probar cosas.
+En ese testing, previo, uno realiza una lista de notas, estas son un objeto con frecuencia y duracion, las cuales
+pasan a un forEach y se van reproduciendo, pero el tema curioso o a donde queria ir, es como juntar o como poner en siguiente
+más notas. Por eso trasteando uno se acuerda del setInterval, el cual se acciona con n tiempo.
+En este primer día, lo que se ha conseguido es no aclarar mucho, pero al menos sale una melodia que si se consigue, nos da
+una idea de por donde puede ir este proyecto, aunque empezara por imitar el bajo de los ws.
+
