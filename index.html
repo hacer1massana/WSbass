@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" type="text/css" href="style.provisional.css">
+
+<script type="text/javascript" src="js/glob.testing.js"></script>
+
+<script>
+	document.title = "WSbass";
+</script>
+
+
+
+<br>
+<br>
+
+<input type="button" value="on/off" onclick="startStop()" name="">
+
+<br>
+
+<input type="button" value="desfrag" onclick="desfrag()">
+
+<br>
+<input type="button" value="BassNote" onclick="playBassNote(45.20, 5, audioContext.currentTime)">
+
+<input type="button" value="bNoteFilter" onclick="playBassNoteWFilter(41.20, 5, audioContext.currentTime)">
+
+<input type="button" value="bNotePluck" onclick="playBassNoteWPluck(50.20, 5, audioContext.currentTime)">
+
+<br>
+
+<input type="button" value="line" onclick="playBassLine(wsBass)">
+
+<br>
+
+<input type="button" value="startAlgo" onclick="startTime()">
+<input type="button" value="stopAlgo" onclick="clearTime()">
+
+<script text/javascript src="js/script.js" defer=""></script>
